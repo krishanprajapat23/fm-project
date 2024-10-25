@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$purple: hsl(259, 100%, 65%);
+$danger: hsl(0, 100%, 67%);
+$white: hsl(0, 0%, 100%);
+$off-white: hsl(0, 0%, 94%);
+$light-grey: hsl(0, 0%, 86%);
+$smokey-grey: hsl(0, 1%, 44%);
+$off-black: hsl(0, 0%, 8%);
+
+$primaryFont: "Poppins", sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.container {
+    padding-inline: 1rem;
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+::placeholder {
+    color: $smokey-grey;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: $off-black;
+    background-color: $white;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: all 0.15s ease-in-out;
+    @media(max-width:475px){
+        font-size: 1rem;
+    }
+    &:focus {
+        border-color: $purple;
+        outline: 0;
+    }
+}
+
+.error-txt {
+    font-size: 11px;
+    color: $danger;
+    font-style: italic;
+    font-weight: 500;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.15s;
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+body {
+    color: $off-black;
+    background-color: $off-white;
+    font-weight: 700;
+    font-family: $primaryFont;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+main {
+    width: 100%;
+}
+
+button {
+    border: 0;
+    outline: 0;
+    display: inline-block;
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    cursor: pointer;
+    background-color: $purple;
+    &:hover, &:focus {
+        background-color: $off-black;
+    }
+    &:disabled,  &.disabled {
+        opacity: 0.75;
+        cursor: not-allowed;
+        user-select: none;
+        &:hover, &:focus {
+            background-color: $purple;
+        }
+    }
+}
+
+.age-calc-sec {
+    background-color: $white;
+    padding: 2.5rem;
+    border-radius: 20px 20px 100px 20px;
+}
+
+form {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    &::after{
+        position: absolute;
+        content: '';
+        border: 1px solid $light-grey;
+        top: 145px;
+        left: 0;
+        right: 10px;
+        width: 90%;
+    }
+    label {
+        text-transform: uppercase;
+        font-size: 12px;
+        color: rgba($smokey-grey, 0.9);
+        letter-spacing: 0.15em;
+    }
+    button{
+        position: relative;
+        z-index: 1;
+        grid-row: 2;
+        grid-column: 4;
+        margin-left: auto;
+    }
+    @media(max-width:600px) {
+        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 1rem;
+        &::after {
+            top: 80%;
+            width: 100%;
+        }
+        button{
+            grid-column: 2;
+            margin: auto;
+        }
+    }
+}
+
+.input-group {
+    &.invalid {
+        .form-control {
+            border-color: $danger;
+        }
+        label {
+            color: $danger;
+        }
+    }
+}
+
+
+.age-display {
+    font-size: 4rem;
+    font-weight: 900;
+    font-style: italic;
+    color: $off-black;
+    .age-num{
+        color: $purple;
+    }
+    @media(max-width:475px){
+        font-size: 2.75rem;
+    }
+}
+
+
+
+// footer
+footer{
+    padding: 1rem;
+}
+.attribution {
+    text-align: center;
+    font-size: 11px;
+    color: $smokey-grey;
+    font-weight: 400;
+    a {
+        color: $purple;
+        &:hover,
+        &:active,
+        &:focus {
+            color: rgba($purple, 0.95);
+        }
+    }
+}
